@@ -1,5 +1,12 @@
 # AngularApiGitgubApp
 
+This is an app that aims to demostrate the angular application of api manipulation.
+It uses github as a point of referecne in as far as looking up data through the submission of requests and receiving data objects in form of an
+abservable is  concerned.
+
+## Contributors
+- Vinge1718 - github username.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.2.
 
 ## Development server
