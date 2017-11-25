@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { userData } from './user';
+import { apiKey } from './env';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+
+  public userData: string;
+
+  inputKey: string = apiKey.inputKey;
+
+  searchInput(userToSearch: string){
+    this.userData = userToSearch;
+    console.log(this.userData + this.inputKey)
+  }
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
 }
