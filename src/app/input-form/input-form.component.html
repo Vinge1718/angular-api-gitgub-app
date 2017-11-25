@@ -1,3 +1,7 @@
-<p>
-  input-form works!
-</p>
+  <div id="request">
+    <input type="text" #userInput >
+    <button
+      (click)="searchClicked(userInput.value);
+      userInput.value='';
+    " type="submit">Search</button>
+  </div>
