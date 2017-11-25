@@ -1,14 +1,12 @@
 <div class="container">
   <h2 class="jumbotron">GitHub Query</h2>
+  {{userData}}
   <p>Enter the user name of any github user to search and display their account details.</p>
   <div class="row">
     <div class="col-md-4">
-      <form id="request">
-        <div class="form-group">
-          <input type="text" id="userName" class="form-control">
-          <input id="search" type="submit">
-        </div>
-      </form>
+      <app-input-form
+        (newInputSender)="searchInput($event)"
+      ></app-input-form>
     </div>
     <div class="col-md-8">
       <div id="results" class="row">
