@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-
 import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { catchError, map, tap } from 'rxjs/operators';
-import 'rxjs/add/operator/catch';
+
 
 @Injectable()
 export class GithubService {
@@ -16,7 +14,7 @@ export class GithubService {
   getUsers(param){
     return this.http.get(param)
   }
-
+//HttpClient injection to launch when the service is launched 
   constructor(private http: HttpClient) { }
 
 }

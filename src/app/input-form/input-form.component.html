@@ -1,6 +1,7 @@
   <div id="request">
-    <input type="text" #userInput >
+    <input type="search" #userInput placeholder="Enter a github User-name" class="form-control">
     <button
+     class="btn btn-primary"
       (click)="searchClicked(userInput.value);
       userInput.value='';
     " type="submit">Search</button>
