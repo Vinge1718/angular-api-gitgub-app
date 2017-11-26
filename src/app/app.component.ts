@@ -40,6 +40,10 @@ export class AppComponent {
     });
   }
 
+  /*the service is innitialised in the clicck function instead of the ngOnInit function because I
+  want the service to be triggered by the click function not the page loading!!! Olllait! hehe
+  */
+
   ngOnInit() {
   }
 
