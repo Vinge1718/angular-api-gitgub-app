@@ -16,6 +16,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * Clone or download the project from [here](https://github.com/Vinge1718/angular-api-gitgub-app).
 * Navigate to the projectt root folder and run `ng serve --o`.
 * The main project filles are in `./src/app`
+* Incase of an error - the error handler will specify in the console log the error type.
 
 ## Built with
 
