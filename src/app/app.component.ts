@@ -7,6 +7,7 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import 'rxjs/add/operator/map';
 import { Http, Response } from '@angular/http';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -36,8 +37,15 @@ export class AppComponent {
     this.gitHubService.getUsers(this.gitHubInfor)
     .subscribe(resUserData => {
       this.returnedUserData = resUserData;
-      console.log(this.returnedUserData);
-    });
+    },
+    (errors:HttpErrorResponse) =>{
+      if (errors.error instanceof Error){
+        console.log("A client-side error occured. Check you input query.");
+      } else{
+        console.log("A server-side error occured. Try again later.")
+      }
+    }
+  );
   }
 
   /*the service is innitialised in the clicck function instead of the ngOnInit function because I
