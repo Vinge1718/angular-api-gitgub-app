@@ -7,7 +7,7 @@ It uses github api as a source of data through the submission of requests.
 It also aims to demonstrate the use of services in angular apps.
 
 ## Contributors
-- Vinge1718 - github username.
+- [Vinge1718](https://github.com/Vinge1718)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.2.
 
