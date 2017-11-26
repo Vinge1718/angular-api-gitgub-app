@@ -1,11 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { userData } from './user';
 import { apiKey } from './env';
-import {Headers, RequestOptions} from '@angular/http';
 import { GithubService } from './github.service';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
-import 'rxjs/add/operator/map';
 import { Http, Response } from '@angular/http';
 import { HttpErrorResponse } from '@angular/common/http';
 

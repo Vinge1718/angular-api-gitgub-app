@@ -9,8 +9,10 @@
     </div>
     <div class="col-md-8">
       <div id="results" class="row" *ngIf="returnedUserData">
-        <div class="col-sm-6" id="avatar">
-          <p><img src="{{returnedUserData.avatar_url}}" height="250"></p>
+        <div class="col-sm-6" id="avatar" style="border-left: solid 1px grey;
+          border-right: solid 1px grey;
+        "><div>User Avatar:</div>
+          <div><img src="{{returnedUserData.avatar_url}}" height="250"></div>
         </div>
         <div class="col-sm-6" id="about" >
           <h3>{{returnedUserData.login}} Details: </h3>
