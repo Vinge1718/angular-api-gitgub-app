@@ -2,19 +2,19 @@
   <h2 class="jumbotron">GitHub Query</h2>
   <p>Enter the user name of any github user to search and display their account details.</p>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 ">
       <app-input-form
         (newInputSender)="searchInput($event)"
       ></app-input-form>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 ">
       <div id="results" class="row" *ngIf="returnedUserData">
         <div class="col-sm-6" id="avatar" style="border-left: solid 1px grey;
           border-right: solid 1px grey;
         "><div>User Avatar:</div>
           <div><img src="{{returnedUserData.avatar_url}}" height="250" style="border-radius: 30%;"></div>
         </div>
-        <div class="col-sm-6" id="about" >
+        <div class="col-sm-6 " id="about" >
           <h3>{{returnedUserData.login}} Details: </h3>
           <br>
           <p> UserName: {{returnedUserData.login}}</p>
@@ -22,11 +22,37 @@
           <p> Public Repositories: {{returnedUserData.public_repos}}</p>
           <p> Follows {{returnedUserData.following}} GitHub users.</p>
           <p> {{returnedUserData.followers}} users follow {{returnedUserData.login}}s' work'</p>
-          <p> For more information on the user, visit: <a href="{{returnedUserData.url}}">{{returnedUserData.url}}</a></p>
+          <p> For more information on the user, visit: <a target="_blank" href="{{returnedUserData.html_url}}">{{returnedUserData.html_url}}</a></p>
         </div>
       </div>
     </div>
   </div><hr>
-  <div></div>
+  <div class="container-fluid">
+    <div *ngIf="returnedUserRepos" class="row">
+      <h4>{{returnedUserData.login}} repositories' details in alphabetical order:</h4>
+      <div  class="col-md-6" >
+        <ol>
+          <li *ngFor="let repo of returnedUserRepos">
+            <ul>
+              <li>
+                <p>Repository name: {{repo.name}}</p>
+                <p placeholder="User didn't include a description in this repo!">Repository description: {{repo.description}}</p>
+                <p>Repository clone Url:<a target="_blank" href="{{repo.clone_url}}"> {{repo.clone_url}}</a></p>
+                <p>Date of creation: {{repo.created_at}}</p>
+                <p>Repository last updated: {{repo.updated_at}}</p>
+                <hr style="
+                  border: 0;
+                  height: 1px;
+                  background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+                  background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+                  background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+                  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);">
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
   <div id="repos"></div>
 </div>
