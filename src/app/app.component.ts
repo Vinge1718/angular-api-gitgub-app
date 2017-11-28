@@ -17,6 +17,10 @@ export class AppComponent {
 
   public gitHubInfor: string;
 
+  public reposUrl: string;
+
+  public returnedUserRepos: any = null;
+
   public returnedUserData: any = null;
 
   apiKey: string = apiKey.inputKey;
@@ -25,15 +29,33 @@ export class AppComponent {
     this.userData = userToSearch;
     this.gitHubInfor = "https://api.github.com/users/" + this.userData + "?access_token=" + this.apiKey;
     this.getUsers();
+    this.reposUrl = "https://api.github.com/users/" + this.userData +"/repos?access_token="+this.apiKey;
+    this.getRepos();
   }
 
   constructor(private gitHubService: GithubService) { }
 
+  getRepos(){
+    this.gitHubService.getRepos(this.reposUrl)
+    .subscribe(resUserRepos => {
+      this.returnedUserRepos =resUserRepos;
+      console.log(this.returnedUserRepos);
+    },
+    (errors:HttpErrorResponse) =>{
+      if(errors.error instanceof Error){
+        console.log("A client-side error occured. Check you input query for spelling errors");
+      }else{
+        console.log("A server-side error occured. Try again later.")
+      }
+    }
+  );
+  }
 
   getUsers() {
     this.gitHubService.getUsers(this.gitHubInfor)
     .subscribe(resUserData => {
       this.returnedUserData = resUserData;
+      console.log(this.returnedUserData);
     },
     (errors:HttpErrorResponse) =>{
       if (errors.error instanceof Error){
