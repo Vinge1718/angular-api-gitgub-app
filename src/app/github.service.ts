@@ -12,9 +12,13 @@ export class GithubService {
 //After angular 4 the (where you import "HttpClient" instead of "http" modules) map() function isn't necessary and it will bring up an error
 
   getUsers(param){
-    return this.http.get(param)
+    return this.http.get(param);
   }
-//HttpClient injection to launch when the service is launched 
+
+  getRepos(repoVar){
+    return this.http.get(repoVar);
+  }
+//HttpClient injection to launch when the service is launched
   constructor(private http: HttpClient) { }
 
 }
