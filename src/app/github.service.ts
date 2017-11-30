@@ -8,8 +8,8 @@ import { AppComponent } from './app.component';
 @Injectable()
 export class GithubService {
 
-//The param variable used is defined in the click function where this function is called-back
-//After angular 4 the (where you import "HttpClient" instead of "http" modules) map() function isn't necessary and it will bring up an error
+//The param and repoVar variable used is defined in the click function where both of these function is called-back
+//After angular 4 the (where you import "HttpClient" instead of "http" modules) map() function isn't necessary and it will cause an error
 
   getUsers(param){
     return this.http.get(param);

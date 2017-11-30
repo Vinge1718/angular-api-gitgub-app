@@ -27,10 +27,11 @@
       </div>
     </div>
   </div><hr>
-  <div class="container-fluid">
-    <div *ngIf="returnedUserRepos" class="row">
+    <div *ngIf="returnedUserRepos">
       <h4>{{returnedUserData.login}} repositories' details in alphabetical order:</h4>
-      <div  class="col-md-6" >
+      <div style="column-count: 2;
+          column-gap: 10px;
+          column-rule: 1px solid #968585;">
         <ol>
           <li *ngFor="let repo of returnedUserRepos">
             <ul>
@@ -53,6 +54,5 @@
         </ol>
       </div>
     </div>
-  </div>
-  <div id="repos"></div>
+ <div id="repos"></div>
 </div>
